@@ -2,7 +2,7 @@ import { View, Text, Alert, SafeAreaView, ActivityIndicator, ScrollView, Refresh
 import React, { useState, useEffect } from 'react'
 import * as Location from 'expo-location'
 
-const openWeatherKey = process.env.WEATHER_KEY
+const openWeatherKey ='b4fa7f72de09703f295509b59cf22d35'
 let url = `http://api.openweathermap.org/data/2.5/onecall?&units=metric&exclude=minutely&appid=${openWeatherKey}`
 
 const Weather = () => {
@@ -12,7 +12,7 @@ const Weather = () => {
     const loadForecast = async () => {
         setRefreshing(true)
 
-        const {status} = await Location.requestForegroundPermissionAsync()
+        const {status} = await Location.requestForegroundPermissionsAsync()
 
         //ask for permission to access location
         if (status !== 'granted') {
